@@ -1,0 +1,33 @@
+import fetch from 'node-fetch'
+import { Configuration, OpenAIApi } from 'openai'
+
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+	if (!text) throw `[!] Masukkan teks.`
+	try {
+		let configuration = new Configuration({ apiKey: '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' })
+		let openai = new OpenAIApi(configuration)
+		let anu = await openai.createCompletion({
+			model: "text-davinci-003",
+			prompt: text,
+			temperature: 0.3,
+			max_tokens: 3000,
+			top_p: 1.0,
+			frequency_penalty: 0.0,
+			presence_penalty: 0.0,
+		})
+		anu = anu.data.choices[0].text.trim()
+		m.reply(anu)
+	} catch (e) {
+		console.log(e)
+		throw `Fitur Error.`
+	}
+}
+
+handler.help = ['ai']
+handler.tags = ['entertainment']
+handler.command = /^((open)?ai)$/i
+
+handler.premium = true
+handler.limit = true
+
+export default handler

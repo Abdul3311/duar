@@ -1,0 +1,22 @@
+import openai from 'openai';
+openai.apiKey = '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';
+
+let handler = async (m, { conn, command, usedPrefix, text }) => {
+if (!text) return m.reply(`Chat dengan AI.\n\nContoh:\n${usedPrefix}${command} Apa itu resesi`)
+const prompt = text
+openai.Completion.create({
+  prompt,
+  max_tokens: 100,
+  n: 1,
+  stop: '.'
+}, (error, response) => {
+  if (error) {
+    console.log(error);
+  } else {
+    m.reply(response.choices[0].text);
+  }
+});
+}
+handler.command = /^(ai2|openai2)$/i
+
+export default handler

@@ -1,0 +1,45 @@
+const {
+    default: _makeWaSocket,
+    makeWALegacySocket,
+    proto,
+    downloadContentFromMessage,
+    jidDecode,
+    areJidsSameUser,
+    generateForwardMessageContent,
+    generateWAMessageFromContent,
+    WAMessageStubType,
+    extractMessageContent
+} = (await import('@adiwajshing/baileys')).default
+
+let handler = async (m, { conn, usedPrefix, command, text }) => {
+const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+      templateMessage: {
+        hydratedTemplate: {
+          locationMessage: { jpegThumbnail: 'https://telegra.ph/file/14dcae9fa251433dcab91.jpg' },
+          hydratedContentText: text,
+          hydratedFooterText: 'wm',
+          hydratedButtons: [{
+            urlButton: {
+              displayText: 'My Website',
+              url: 'https://arifzyn-dev-webs.vercel.app'
+            }
+          },
+          {
+            quickReplyButton: {
+              displayText: 'Owner',
+              id: '.owmer'
+            }
+          }]
+        }
+      }
+    }), { userJid: conn.user.jid, quoted: m })
+    return await conn.relayMessage(
+      jid,
+      template.message,
+      { messageId: template.key.id }
+    )
+}
+handler.command = ['buttonloc']
+
+
+export default handler

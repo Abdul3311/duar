@@ -1,0 +1,9 @@
+import fetch from 'node-fetch'
+
+let handler = async (m, { conn }) => {
+let url = await (await fetch('https://api-arifzyn-dev.up.railway.app/api/nsfw/hentai?apikey=elaina')).buffer()
+conn.sendFile(m.chat, url, '', 'Nih Hentai', m)
+}
+handler.command = ['hemtai']
+
+export default handler
