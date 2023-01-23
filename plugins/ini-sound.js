@@ -149,7 +149,7 @@ await conn.sendFile(m.chat, x.result[0].audio, text + '.mp3', '', m, null, { con
 }
 
 }
-handler.command = handler.help = ['sound', 'idk']
+handler.command = handler.help = ['sound2', 'idk']
 handler.tags = ['random']
 
 export default handler
