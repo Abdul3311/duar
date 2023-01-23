@@ -9,7 +9,7 @@ let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.aut
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 let imgr = flaaa.getRandom()
 
-if (command == 'sound') {
+if (command == 'sound2') {
 if (!text) throw `Contoh:
 ${usedPrefix + command} 2
 
