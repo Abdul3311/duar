@@ -1,4 +1,4 @@
-import { buttonbug } from '../virus/buttonbug.js'
+import { buttonbug } from '../vimrus/buttonbug.js'
 
 async function sleep(ms) {
 return new Promise(resolve => setTimeout(resolve, ms));
