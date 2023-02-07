@@ -31,7 +31,7 @@ global.owner = [
   ['6285869074622', 'Abdul Masuk Surga', true],
   ['62895333501279', '️Nadeshiko', true],
   ['62895604670507', '️Ayang Zens<3', true],
-  ['79919756009', '️Elaina', true]
+  ['6285817399415', '️Mamam Zheyeng', true]
 ]
 global.mods = []
 global.prems = []
